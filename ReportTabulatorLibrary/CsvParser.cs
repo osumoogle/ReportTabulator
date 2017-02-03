@@ -93,7 +93,6 @@ namespace ReportTabulatorLibrary
 
         public string Process()
         {
-
             var lines = GetLines();
             if (lines == null) return "Unable to process file.";
             var tabEntries = GetTabEntries(lines);
@@ -101,20 +100,24 @@ namespace ReportTabulatorLibrary
 
             var faxesOnly = GetOnlyFaxEntries(tabEntries);
 
+            var failedFaxes = faxesOnly.Where(f => f.Status == "Failed").ToList();
+
             var orgPageCounts = faxesOnly.GroupBy(x => x.OrganizationId)
                 .Select(
                     org =>
                         new {
                             Organization = org.First().OrganizationName,
-                            PagesSent = org.Where(x => x.Origin == "Kno2WebPortal").Sum(x => x.OriginalPageCount),
+                            PagesSent = org.Where(x => x.Origin == "Kno2WebPortal" && x.Status != "Failed").Sum(x => x.OriginalPageCount),
                             PagesReceived = org.Where(x => x.Origin == "Fax").Sum(x => x.OriginalPageCount)
                         }).ToList();
 
             var sb = new StringBuilder();
-            sb.AppendLine($"Results: {tabEntries.Count}");
+            sb.AppendLine($"Total messages sent: {tabEntries.Count}");
             sb.AppendLine($"Faxes sent or received: {faxesOnly.Count}");
             sb.AppendLine(
                 $"Total pages sent or received: {faxesOnly.Sum(f => f.OriginalPageCount)}");
+            sb.AppendLine(
+                $"Failed faxes: {failedFaxes.Count} - Failed page count: {failedFaxes.Sum(x => x.OriginalPageCount)}");
             foreach (var org in orgPageCounts)
             {
                 sb.AppendLine($"{org.Organization} - Pages Sent: {org.PagesSent} - Pages Received: {org.PagesReceived}");
