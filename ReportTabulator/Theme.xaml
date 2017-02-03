@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="ForegroundBrush" Color="White"></SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="Black"></SolidColorBrush>
+    
+    <Style TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"></Setter>
+    </Style>
+    
+    <Style TargetType="ContentControl">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"></Setter>
+    </Style>
+    
+    <Style TargetType="TextBox">
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+    </Style>
+    
+</ResourceDictionary>

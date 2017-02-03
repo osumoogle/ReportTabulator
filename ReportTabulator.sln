@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportTabulatorLibrary", "ReportTabulatorLibrary\ReportTabulatorLibrary.csproj", "{0D50F74C-366B-4684-8AEC-06F9655A36A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportTabulator", "ReportTabulator\ReportTabulator.csproj", "{847C50A1-E071-4134-96BC-D3E37B7C7360}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D50F74C-366B-4684-8AEC-06F9655A36A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D50F74C-366B-4684-8AEC-06F9655A36A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D50F74C-366B-4684-8AEC-06F9655A36A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D50F74C-366B-4684-8AEC-06F9655A36A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{847C50A1-E071-4134-96BC-D3E37B7C7360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{847C50A1-E071-4134-96BC-D3E37B7C7360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{847C50A1-E071-4134-96BC-D3E37B7C7360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{847C50A1-E071-4134-96BC-D3E37B7C7360}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

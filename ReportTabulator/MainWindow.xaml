@@ -1,0 +1,21 @@
+﻿<Window x:Class="ReportTabulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="700" Background="Black" Foreground="White">
+    <Window.Resources>
+        <ResourceDictionary Source="Theme.xaml"></ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Label Content="File:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,25,0,0"></Label>
+        <TextBox Height="30" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,25,0,0" Text="{Binding FileName}"></TextBox>
+        <Button Height="30" Width="100" Content="Choose" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,25,0,0" Command="{Binding ChooseFileCommand}"></Button>
+        <Label Content="Separator:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,65,0,0"></Label>
+        <TextBox Height="30" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,65,0,0" Text="{Binding Separator}"></TextBox>
+        <Button Height="30" Width="100" Content="Process" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,63,0,0" Command="{Binding ProcessFileCommand}"/>
+        <Label Content="Results:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,125,0,0" Visibility="{Binding ShouldShowResults}"/>
+        <TextBox Margin="80,125,10.286,10.429" Text="{Binding Results}" Visibility="{Binding ShouldShowResults}" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"/>
+    </Grid>
+</Window>
