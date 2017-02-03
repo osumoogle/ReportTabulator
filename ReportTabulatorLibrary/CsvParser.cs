@@ -113,6 +113,8 @@ namespace ReportTabulatorLibrary
             var sb = new StringBuilder();
             sb.AppendLine($"Results: {tabEntries.Count}");
             sb.AppendLine($"Faxes sent or received: {faxesOnly.Count}");
+            sb.AppendLine(
+                $"Total pages sent or received: {faxesOnly.Sum(f => f.OriginalPageCount)}");
             foreach (var org in orgPageCounts)
             {
                 sb.AppendLine($"{org.Organization} - Pages Sent: {org.PagesSent} - Pages Received: {org.PagesReceived}");
