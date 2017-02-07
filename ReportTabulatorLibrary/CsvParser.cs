@@ -108,6 +108,8 @@ namespace ReportTabulatorLibrary
                         new {
                             Organization = org.First().OrganizationName,
                             PagesSent = org.Where(x => x.Origin == "Kno2WebPortal" && x.Status != "Failed").Sum(x => x.OriginalPageCount),
+                            FaxesSent = org.Count(x => x.Origin == "Kno2WebPortal"),
+                            FaxesReceived = org.Count(x => x.Origin == "Fax"),
                             PagesReceived = org.Where(x => x.Origin == "Fax").Sum(x => x.OriginalPageCount)
                         }).ToList();
 
@@ -118,9 +120,13 @@ namespace ReportTabulatorLibrary
                 $"Total pages sent or received: {faxesOnly.Sum(f => f.OriginalPageCount)}");
             sb.AppendLine(
                 $"Failed faxes: {failedFaxes.Count} - Failed page count: {failedFaxes.Sum(x => x.OriginalPageCount)}");
+            sb.AppendLine();
             foreach (var org in orgPageCounts)
             {
-                sb.AppendLine($"{org.Organization} - Pages Sent: {org.PagesSent} - Pages Received: {org.PagesReceived}");
+                sb.AppendLine($"----{org.Organization}----");
+                sb.AppendLine($"Faxes Sent: {org.FaxesSent} - Faxes Received: {org.FaxesReceived}");
+                sb.AppendLine($"Pages Sent: {org.PagesSent} - Pages Received: {org.PagesReceived}");
+                sb.AppendLine();
             }
             return sb.ToString();
         }
